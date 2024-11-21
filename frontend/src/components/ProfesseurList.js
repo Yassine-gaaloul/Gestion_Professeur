@@ -13,7 +13,7 @@ function StudentList() {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/students`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/professeurs`);
       setStudents(response.data);
     } catch (error) {
       console.error("Erreur lors de la récupération des Professeurs :", error);
@@ -22,7 +22,7 @@ function StudentList() {
 
   const deleteStudent = async (name) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/students/${name}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/professeur-delete/${name}`);
       fetchStudents();
     } catch (error) {
       console.error("Erreur lors de la suppression de professeur :", error);

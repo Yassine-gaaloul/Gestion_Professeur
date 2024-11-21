@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function UpdateStudentForm() {
+function UpdateProfesseurForm() {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ function UpdateStudentForm() {
     e.preventDefault();
     try {
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/students/${student.name}`,
+        `${process.env.REACT_APP_API_URL}/professeurs_update/${student.name}`,
         {
           name,
           age,
@@ -158,4 +158,4 @@ const styles = {
   },
 };
 
-export default UpdateStudentForm;
+export default UpdateProfesseurForm;

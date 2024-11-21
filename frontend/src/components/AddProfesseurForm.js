@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function AddStudentForm() {
+function AddprofesseurForm() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [grade, setGrade] = useState('');
@@ -10,10 +10,10 @@ function AddStudentForm() {
 
   const navigate = useNavigate();
 
-  const addStudent = async (e) => {
+  const addprofesseur = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/students`, { name, age, grade, email });
+      await axios.post(`${process.env.REACT_APP_API_URL}/professeurs_post`, { name, age, grade, email });
       setName('');
       setAge('');
       setGrade('');
@@ -27,7 +27,7 @@ function AddStudentForm() {
   return (
     <div style={styles.wrapper}>
       <h2 style={styles.title}>Ajouter un Professeur</h2>
-      <form onSubmit={addStudent} style={styles.form}>
+      <form onSubmit={addprofesseur} style={styles.form}>
         <input
           type="text"
           placeholder="Nom"
@@ -121,4 +121,4 @@ const styles = {
   },
 };
 
-export default AddStudentForm;
+export default AddprofesseurForm;
